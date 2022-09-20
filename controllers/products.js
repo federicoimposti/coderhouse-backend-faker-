@@ -1,4 +1,5 @@
 const fs = require('fs');
+const fakerProducts = require('../utils/faker');
 const error = { error: 'Producto no encontrado' };
 
 let products = [];
@@ -49,6 +50,10 @@ module.exports = class Controller {
         } catch(err) {
             throw new Error('Ocurrió un error obteniendo los productos.', err);
         }
+    }
+
+    static getAllFaker() {
+        return fakerProducts.fakerList();
     }
 
     static deleteById(id) {

@@ -32,7 +32,7 @@ app.use('/', router);
  io.on('connection', async function(socket) {
     console.log('Un cliente se ha conectado');
 
-    socket.emit('products', await products.getAll());
+    socket.emit('products', await productsController.getAllFaker());
     socket.emit('messages', await messages.getAll());
 
     socket.on('new-message', async (data) => {
